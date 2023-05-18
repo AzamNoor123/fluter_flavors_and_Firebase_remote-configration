@@ -18,7 +18,7 @@ class App extends StatelessWidget {
           children: [
             Center(
                 child: ElevatedButton(
-                    onPressed: () {}, child: const Text('Crash Button')))
+                    onPressed: () {}, child: const Text('Crash Btn')))
           ],
         ),
       ),
