@@ -8,7 +8,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'task6 flutter flavours',
+      title: 'Task6 flutter flavours',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
