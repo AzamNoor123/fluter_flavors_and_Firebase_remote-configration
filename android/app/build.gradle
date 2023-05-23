@@ -25,6 +25,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
+
 android {
     flavorDimensions "flavor-type"
 
@@ -32,21 +33,21 @@ android {
         dev {
             dimension "flavor-type"
             applicationIdSuffix ".dev"
-            resValue "string", "app_name", "Flutter Flavor Dev"
+            resValue "string", "app_name", "Dev"
         }
         stage {
             dimension "flavor-type"
-            applicationIdSuffix "stage"
-            resValue "string", "app_name", "Flutter Flavor Stage"
+            applicationIdSuffix ".stage"
+            resValue "string", "app_name", "Stage"
         }
         prod {
             dimension "flavor-type"
             applicationIdSuffix ""
-            resValue "string", "app_name", "Flutter Flavor"
+            resValue "string", "app_name", "prod"
         }
         
     }
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion 33
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -67,10 +68,11 @@ android {
         applicationId "com.example.task_6_flutter_flavours"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
+        minSdkVersion 23
+        targetSdkVersion 31
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        multiDexEnabled true
     }
    
 
@@ -89,4 +91,14 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation platform('com.google.firebase:firebase-bom:32.0.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation "androidx.multidex:multidex:2.0.1"
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics'
 }
+
+apply plugin: 'com.google.gms.google-services'
+apply plugin:'com.google.firebase.crashlytics'
